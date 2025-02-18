@@ -8,10 +8,13 @@ import { generateEmail } from "../../services/EmailService/EmailService";
 const CallForm = () => {
   const [callTitle, setCallTitle] = useState("");
   const [callDescription, setCallDescription] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
     generateEmail({ title: callTitle, description: callDescription });
+    setLoading(false);
   };
 
   return (
@@ -34,7 +37,7 @@ const CallForm = () => {
             />
           </Grid>
           <Grid size={4} sx={{ height: "15%" }}>
-            <CallFormSubmit />
+            <CallFormSubmit loading={loading} />
           </Grid>
         </Grid>
       </form>
