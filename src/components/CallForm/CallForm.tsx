@@ -3,14 +3,20 @@ import Grid from "@mui/material/Grid2";
 import { useState } from "react";
 import CallFormDescription from "./CallFormDescription";
 import CallFormSubmit from "./CallFormSubmit";
+import { generateEmail } from "../../services/EmailService/EmailService";
 
 const CallForm = () => {
   const [callTitle, setCallTitle] = useState("");
   const [callDescription, setCallDescription] = useState("");
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    generateEmail({ title: callTitle, description: callDescription });
+  };
+
   return (
     <Grid container size={12} justifyContent={"center"}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Grid
           container
           size={12}
