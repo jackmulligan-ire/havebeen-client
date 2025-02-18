@@ -21,10 +21,18 @@ const CallFormDescription = ({
       placeholder="Enter a call description"
       required
       multiline
+      sx={{
+        minHeight: "300px",
+      }}
       slotProps={{
         input: {
           sx: {
-            height: "150px",
+            height: "300px",
+            overflowY: "auto",
+            "& textarea": {
+              height: "auto",
+              minHeight: "250px",
+            },
           },
         },
       }}

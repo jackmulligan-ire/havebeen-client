@@ -23,11 +23,12 @@ const CallForm = () => {
         <Grid
           container
           size={12}
-          sx={{ mt: 4, height: "100%" }}
+          spacing={2}
+          sx={{ mt: 4 }}
           justifyContent={"right"}
           alignItems={"center"}
         >
-          <Grid size={12} sx={{ height: "20%" }}>
+          <Grid size={12}>
             <CallFormTitle callTitle={callTitle} setCallTitle={setCallTitle} />
           </Grid>
           <Grid size={12}>
@@ -36,7 +37,7 @@ const CallForm = () => {
               setCallDescription={setCallDescription}
             />
           </Grid>
-          <Grid size={4} sx={{ height: "15%" }}>
+          <Grid size={4}>
             <CallFormSubmit loading={loading} />
           </Grid>
         </Grid>
