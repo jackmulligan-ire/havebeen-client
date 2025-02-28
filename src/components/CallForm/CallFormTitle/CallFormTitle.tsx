@@ -1,17 +1,23 @@
 import TextField from "@mui/material/TextField";
+import { CallRequest } from "../../../services/EmailService/EmailService.types";
 
 interface CallFormTitleProps {
-  callTitle: string;
-  setCallTitle: React.Dispatch<React.SetStateAction<string>>;
+  title: string;
+  setCall: React.Dispatch<React.SetStateAction<CallRequest>>;
 }
 
-const CallFormTitle = ({ callTitle, setCallTitle }: CallFormTitleProps) => {
+const CallFormTitle = ({ title, setCall }: CallFormTitleProps) => {
   return (
     <TextField
       label="Call Title"
-      value={callTitle}
+      value={title}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-        setCallTitle(e.target.value)
+        setCall((call: CallRequest) => {
+          return {
+            ...call,
+            title: e.target.value,
+          };
+        })
       }
       variant="outlined"
       fullWidth

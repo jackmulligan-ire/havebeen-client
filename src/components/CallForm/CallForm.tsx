@@ -4,17 +4,28 @@ import { useState } from "react";
 import CallFormDescription from "./CallFormDescription";
 import CallFormSubmit from "./CallFormSubmit";
 import { generateEmail } from "../../services/EmailService/EmailService";
+import {
+  CallRequest,
+  EmailResponse,
+} from "../../services/EmailService/EmailService.types";
 
-const CallForm = () => {
-  const [callTitle, setCallTitle] = useState("");
-  const [callDescription, setCallDescription] = useState("");
+interface CallFormProps {
+  setEmail: React.Dispatch<React.SetStateAction<EmailResponse | null>>;
+}
+
+const CallForm = ({ setEmail }: CallFormProps) => {
+  const [call, setCall] = useState<CallRequest>({
+    title: "",
+    description: "",
+  });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
-    generateEmail({ title: callTitle, description: callDescription });
+    const email: EmailResponse = await generateEmail(call);
     setLoading(false);
+    setEmail(email);
   };
 
   return (
@@ -29,12 +40,12 @@ const CallForm = () => {
           alignItems={"center"}
         >
           <Grid size={12}>
-            <CallFormTitle callTitle={callTitle} setCallTitle={setCallTitle} />
+            <CallFormTitle title={call.title} setCall={setCall} />
           </Grid>
           <Grid size={12}>
             <CallFormDescription
-              callDescription={callDescription}
-              setCallDescription={setCallDescription}
+              description={call.description}
+              setCall={setCall}
             />
           </Grid>
           <Grid size={4}>

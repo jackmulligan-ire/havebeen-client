@@ -3,7 +3,7 @@ export interface CallRequest {
   description: string;
 }
 
-export interface EmailReponse {
+export interface EmailResponse {
   title: string;
   body: string;
 }
