@@ -20,7 +20,7 @@ describe("<CallForm />", () => {
     const callTitleInput = screen.getByLabelText(/call title/i);
     const callDescriptionInput = screen.getByLabelText(/call description/i);
     const generateEmailButton = screen.getByRole("button", {
-      name: /generate email/i,
+      name: /create email/i,
     });
 
     userEvent.type(callTitleInput, mockTitle);
@@ -43,7 +43,7 @@ describe("<CallForm />", () => {
     const callTitleInput = screen.getByLabelText(/call title/i);
     const callDescriptionInput = screen.getByLabelText(/call description/i);
     const generateEmailButton = screen.getByRole("button", {
-      name: /generate email/i,
+      name: /create email/i,
     });
 
     userEvent.type(callTitleInput, "Quick catch up");

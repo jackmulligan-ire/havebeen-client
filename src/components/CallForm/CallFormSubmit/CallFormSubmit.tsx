@@ -12,7 +12,7 @@ const CallFormSubmit = ({ loading }: CallFormSubmitProps) => (
     loading={loading}
     loadingPosition="start"
   >
-    Generate Email
+    Create Email
   </Button>
 );
 

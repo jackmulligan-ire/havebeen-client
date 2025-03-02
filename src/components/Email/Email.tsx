@@ -40,7 +40,7 @@ const Email = ({ email, setEmail }: EmailProps) => {
         <Grid size={12}>
           <EmailBody emailBody={emailBody} setEmailBody={setEmailBody} />
         </Grid>
-        <Grid size={4}>
+        <Grid size={3}>
           <EmailClearButton handleClick={handleClearButtonClick} />
         </Grid>
       </Grid>

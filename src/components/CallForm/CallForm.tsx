@@ -54,7 +54,7 @@ const CallForm = ({ setEmail }: CallFormProps) => {
               setCall={setCall}
             />
           </Grid>
-          <Grid size={4}>
+          <Grid size={3}>
             <CallFormSubmit loading={loading} />
           </Grid>
         </Grid>
