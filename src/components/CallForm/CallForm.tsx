@@ -29,31 +29,22 @@ const CallForm = ({ setEmail }: CallFormProps) => {
   };
 
   return (
-    <Grid container size={12} justifyContent={"center"}>
-      <form onSubmit={handleSubmit}>
-        <Grid
-          container
-          size={12}
-          spacing={2}
-          sx={{ mt: 4 }}
-          justifyContent={"right"}
-          alignItems={"center"}
-        >
-          <Grid size={12}>
-            <CallFormTitle title={call.title} setCall={setCall} />
-          </Grid>
-          <Grid size={12}>
-            <CallFormDescription
-              description={call.description}
-              setCall={setCall}
-            />
-          </Grid>
-          <Grid size={4}>
-            <CallFormSubmit loading={loading} />
-          </Grid>
+    <form onSubmit={handleSubmit}>
+      <Grid container size={12} spacing={2} justifyContent={"right"}>
+        <Grid size={12}>
+          <CallFormTitle title={call.title} setCall={setCall} />
         </Grid>
-      </form>
-    </Grid>
+        <Grid size={12}>
+          <CallFormDescription
+            description={call.description}
+            setCall={setCall}
+          />
+        </Grid>
+        <Grid size={4}>
+          <CallFormSubmit loading={loading} />
+        </Grid>
+      </Grid>
+    </form>
   );
 };
 

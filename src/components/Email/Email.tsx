@@ -19,7 +19,7 @@ const Email = ({ email, setEmail }: EmailProps) => {
   };
 
   return (
-    <Grid container size={12} justifyContent={"right"} spacing={2}>
+    <Grid container size={12} spacing={2} justifyContent={"right"}>
       <Grid size={12}>
         <EmailTitle emailTitle={emailTitle} setEmailTitle={setEmailTitle} />
       </Grid>
