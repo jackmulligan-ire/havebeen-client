@@ -6,7 +6,7 @@ interface CallFormSubmitProps {
 
 const CallFormSubmit = ({ loading }: CallFormSubmitProps) => (
   <Button
-    variant="outlined"
+    variant="contained"
     type="submit"
     fullWidth
     loading={loading}

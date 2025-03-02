@@ -8,6 +8,8 @@ import {
   CallRequest,
   EmailResponse,
 } from "../../services/EmailService/EmailService.types";
+import { callFormContainerSx } from "./CallForm.styles";
+import Typography from "@mui/material/Typography";
 
 interface CallFormProps {
   setEmail: React.Dispatch<React.SetStateAction<EmailResponse | null>>;
@@ -30,18 +32,31 @@ const CallForm = ({ setEmail }: CallFormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container size={12} spacing={2} justifyContent={"right"}>
-        <Grid size={12}>
-          <CallFormTitle title={call.title} setCall={setCall} />
+      <Grid
+        container
+        size={12}
+        spacing={2}
+        justifyContent={"left"}
+        sx={callFormContainerSx}
+      >
+        <Grid size={6}>
+          <Typography variant="h5" color="#333">
+            Turn Your Call into an Email
+          </Typography>
         </Grid>
-        <Grid size={12}>
-          <CallFormDescription
-            description={call.description}
-            setCall={setCall}
-          />
-        </Grid>
-        <Grid size={4}>
-          <CallFormSubmit loading={loading} />
+        <Grid container size={12} justifyContent={"right"}>
+          <Grid size={12}>
+            <CallFormTitle title={call.title} setCall={setCall} />
+          </Grid>
+          <Grid size={12}>
+            <CallFormDescription
+              description={call.description}
+              setCall={setCall}
+            />
+          </Grid>
+          <Grid size={4}>
+            <CallFormSubmit loading={loading} />
+          </Grid>
         </Grid>
       </Grid>
     </form>

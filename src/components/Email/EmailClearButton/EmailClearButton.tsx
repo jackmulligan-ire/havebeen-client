@@ -5,7 +5,7 @@ interface EmailClearButtonProps {
 }
 
 const EmailClearButton = ({ handleClick }: EmailClearButtonProps) => (
-  <Button variant="outlined" onClick={handleClick} fullWidth>
+  <Button variant="contained" onClick={handleClick} fullWidth>
     Clear Email
   </Button>
 );
