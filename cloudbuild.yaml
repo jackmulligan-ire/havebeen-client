@@ -1,0 +1,14 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t", "gcr.io/$PROJECT_ID/havebeen-client",
+        "-f", "./Dockerfile.prd",
+        "--build-arg", "REACT_APP_API_URL=$_REACT_APP_API_URL",
+        ".",
+      ]
+substitutions: 
+  _REACT_APP_API_URL: "https://havebeen-api-1012251451645.europe-west1.run.app"
+images:
+  - "gcr.io/$PROJECT_ID/havebeen-client"
