@@ -8,6 +8,22 @@ steps:
         "--build-arg", "REACT_APP_API_URL=$_REACT_APP_API_URL",
         ".",
       ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      [
+        'push', 
+        'gcr.io/$PROJECT_ID/havebeen-client'
+      ]
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: 
+      [
+        'run', 
+        'deploy', 'havebeen-client', 
+        '--image', 'gcr.io/$PROJECT_ID/havebeen-client', 
+        '--region', 'europe-west1',
+        '--port', '80'
+      ]
 substitutions: 
   _REACT_APP_API_URL: "https://havebeen-api-1012251451645.europe-west1.run.app"
 images:
